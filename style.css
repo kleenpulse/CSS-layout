@@ -9,22 +9,68 @@
   --grey-1: hsla(0, 0%, 100%, 0.75);
   --grey-2: hsl(0, 0%, 95%);
   --trans: all 400ms;
-}
 
-html,
-body,
-main {
-  height: 100%;
 }
 
 body {
   background: #e0e0e0;
 }
 
-.main {
-  display: grid;
-  place-items: center;
+@media (max-width: 846px) {
+  body {
+    background: #fff;
+  }
 }
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.link a {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Big Shoulders Display";
+  font-size: 2rem;
+  letter-spacing: 2px;
+  padding: 0.5rem 1rem;
+  background: none;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(254, 254, 254, 0.464);
+  border: 1px solid #fff;
+  position: relative;
+  transition: var(--trans);
+}
+
+.link a::after {
+  content: "";
+  background: #000;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  z-index: -1;
+  height: 100%;
+  left: 0;
+  border-radius: 12px;
+  transition: var(--trans);
+}
+
+.link a:hover {
+  color: #fff;
+}
+
+.link a:hover::after {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .main .content {
   transition: var(--trans);
   border-radius: 50px;
@@ -32,30 +78,19 @@ body {
   margin: 0 5rem;
   animation: shadow 2s 2s ease-in forwards;
 }
+
 @keyframes shadow {
   100% {
     box-shadow: 41px 41px 82px #bebebe, -41px -41px 82px #ffffff;
   }
 }
-@media (max-width: 850px) {
-  .main .content {
-    margin: 5rem 4rem;
-    padding: 1rem 0;
-  }
-}
-@media (max-width: 500px) {
-  .main .content {
-    margin: 5rem 0rem !important;
-    padding: 1rem 0;
-    animation: none !important;
-  }
-}
+
 .main .content .cards {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
   margin: 0 15%;
   transition: var(--trans);
 }
+
 .main .content .cards .card {
   display: flex;
   flex-direction: column;
@@ -63,52 +98,64 @@ body {
   transition: var(--trans);
   animation: slideup 1s ease-in forwards;
 }
+
 @keyframes slideup {
   0% {
     opacity: 0;
     transform: translateY(50px);
   }
+
   50% {
     transform: translateY(-50px) scale(1.2);
   }
+
   100% {
     opacity: 1;
   }
 }
+
 .main .content .cards .card:first-child {
   background: var(--orange);
   border-radius: 10px 0 0 10px;
 }
+
 .main .content .cards .card:first-child button {
   color: var(--orange);
 }
+
 .main .content .cards .card:nth-child(2) {
   background: var(--dark-cyan);
   opacity: 0;
   animation-delay: 1s;
 }
+
 .main .content .cards .card:nth-child(2) button {
   color: var(--dark-cyan);
 }
+
 .main .content .cards .card:last-child {
   background: var(--v-dark-cyan);
   border-radius: 0 10px 10px 0;
   opacity: 0;
   animation-delay: 2s;
 }
+
 .main .content .cards .card:last-child button {
   color: var(--v-dark-cyan);
 }
+
 .main .content .cards .card .image {
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
+
 .main .content .cards .card h2 {
   font-family: "Big Shoulders Display", sans-serif;
   font-size: 2rem;
   color: var(--grey-2);
   margin-bottom: 2rem;
 }
+
 .main .content .cards .card p {
   margin-bottom: 6rem;
   font: 400 15px Lexend deca;
@@ -117,10 +164,12 @@ body {
   height: 50%;
   line-height: 1.5;
 }
+
 .main .content .cards .card .btn {
   position: relative;
   margin-top: 2rem;
 }
+
 .main .content .cards .card .btn button {
   position: absolute;
   bottom: 0;
@@ -133,52 +182,88 @@ body {
   transition: var(--trans);
   cursor: pointer;
 }
+
 .main .content .cards .card .btn button:hover {
   background: none;
   border: 1px solid var(--grey-2);
   color: var(--grey-2);
 }
+
 @media (max-width: 1245px) {
-  .main .content .cards {
-    transition: var(--trans);
-    margin: 0 10%;
-  }
-}
-@media (max-width: 1000px) {
   .main .content .cards {
     transition: var(--trans);
     margin: 0 5%;
   }
 }
-@media (max-width: 846px) {
+
+@media (max-width: 600px) {
   .main .content .cards {
     transition: var(--trans);
-    grid-template-columns: auto;
-    margin: 20% 23%;
   }
+}
+
+@media (max-width: 400px) {
+  .main .content .cards {
+    transition: var(--trans);
+    margin: 20% 2% !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main .content {
+    transition: var(--trans);
+    margin: 0 5%;
+  }
+}
+
+@media (max-width: 900px) {
+  .main .content {
+    margin: 5rem 1rem;
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .main .content {
+    margin: 5rem 0rem !important;
+    padding: 1rem 0;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 846px) {
+  .main .content {
+    box-shadow: none !important;
+  }
+
+  .main .content .cards {
+    transition: var(--trans);
+    margin: 0 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .main .content .cards .card:first-child {
     border-radius: 10px 10px 0 0;
   }
+
   .main .content .cards .card:last-child {
     border-radius: 0 0 10px 10px;
   }
 }
-@media (max-width: 600px) {
-  .main .content .cards {
-    transition: var(--trans);
-    margin: 20% 15%;
-  }
-}
-@media (max-width: 375px) {
-  .main .content .cards {
-    transition: var(--trans);
-    margin: 20% 5%;
-  }
-}
+
 .main .footer {
+  width: 100%;
+  transition: var(--trans);
+  position: absolute;
+  bottom: 0;
+}
+
+.main .footer .word {
   font-size: 35px;
   text-transform: uppercase;
-  text-align: center;
   font-family: rajdhani;
   color: transparent;
   font-weight: 900;
@@ -186,34 +271,45 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   background-color: #565656;
-  position: relative;
-  transition: var(--trans);
+  text-align: center;
 }
+
 @media (min-width: 1000px) {
   .main .footer {
     transition: var(--trans);
     font-size: 3rem;
   }
 }
+
 @media (max-width: 900px) {
   .main .footer {
     transition: var(--trans);
     margin-bottom: 1rem;
+    position: relative;
   }
 }
+
 @media (max-width: 500px) {
   .main .footer {
     font-size: 5vw;
   }
 }
+
 .main .fa-heart {
   color: #920121;
-  animation: pulse 1s linear infinite;
+  animation: pulse 1s linear infinite !important;
 }
+
 @keyframes pulse {
   50% {
-    transform: scale(1.3);
+    transform: scale(0.8);
     color: red;
+  }
+}
+
+@media (min-width: 846px) {
+  .main {
+    margin-top: 5rem;
   }
 }
 
@@ -225,4 +321,5 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #b9b4b4;
   border-radius: 12px;
-}/*# sourceMappingURL=style.css.map */
+}
+
